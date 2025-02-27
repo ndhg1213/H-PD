@@ -1,4 +1,4 @@
-# [CVPR 2025)] H-PD
+# [CVPR 2025] H-PD
 
 This is the official implementation of paper **Hierarchical Features Matter: A Deep Exploration of Progressive Parameterization Method for Dataset Distillation (CVPR2025)** .
 
