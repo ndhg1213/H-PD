@@ -1,51 +1,18 @@
-# H-GLaD: Hierarchical Features Matter: A Deep Exploration of GAN Priors for Improved Dataset Distillation
+# H-PD
 
-[Paper](https://arxiv.org/abs/2406.05704)
-<br>
+This is the official implementation of paper **Hierarchical Features Matter: A Deep Exploration of Progressive Parameterization Method for Dataset Distillation (CVPR2025)** .
 
-<!-- This repo contains code for training expert trajectories and distilling synthetic data from our GLaD paper (CVPR 2023). Please see our [project page](https://georgecazenavette.github.io/glad) for more results.
+The repository is based on [GLaD](https://github.com/georgecazenavette/glad). Please cite their papers if you use the code. 
 
-
-> [**Dataset Distillation by Matching Training Trajectories**](https://georgecazenavette.github.io/mtt-distillation/)<br>
-> [George Cazenavette](https://georgecazenavette.github.io/), [Tongzhou Wang](https://ssnl.github.io/), [Antonio Torralba](https://groups.csail.mit.edu/vision/torralbalab/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)<br>
-> MIT, UC Berkeley, CMU<br>
-> CVPR 2023 -->
-
-H-GLaD utilizes hierarchical features to enhance the GAN-based parameterization dataset distillation method.
-
-<!-- ![method image](resources/method.svg)
-
-Please see our [Project Page](https://georgecazenavette.github.io/glad) for more visualizations. -->
-
-<!-- ## Getting Started -->
-
-<!-- First, download our repo:
-```bash
-git clone https://github.com/GeorgeCazenavette/glad.git
-cd glad
-```
-
-To setup an environment, please run
-
-```bash
-conda env create -n glad python=3.9
-conda activate glad
-pip install -r requirements.txt
-``` -->
-
-## Usage
-Below are some example commands to run each method.
-
-Using the default hyper-parameters, you should be able to comfortable run each method on a 24GB GPU.
 
 ### Distillation by Gradient Matching
-The following command will then use the buffers we just generated to distill imagenet-birds down to 1 image per class using StyleGAN:
+The following command will distill imagenet-birds down to 1 image per class using StyleGAN:
 ```bash
 python h_glad_dc.py --dataset=imagenet-birds --space=wp --ipc=1 --data_path={path_to_dataset}
 ```
 
 ### Distillation by Distribution Matching
-The following command will then use the buffers we just generated to distill imagenet-fruit down to 1 image per class using StyleGAN:
+The following command will distill imagenet-fruit down to 1 image per class using StyleGAN:
 ```bash
 python h_glad_dm.py --dataset=imagenet-fruits --space=wp --ipc=1 --data_path={path_to_dataset}
 ```
@@ -71,8 +38,7 @@ Adding ```--learn_g``` will allow the weights of the StyleGAN to be updated alon
 Adding ```--avg_w``` will initialize the w-latents with the average w for the respective class. 
 (Do not do this if attempting to distill multiple images per class.)
 
-# Reference
-If you find our code useful for your research, please cite our paper.
+If you use the repo, please consider citing:
 ```
 @article{zhong2024hierarchical,
   title={Hierarchical Features Matter: A Deep Exploration of GAN Priors for Improved Dataset Distillation},
